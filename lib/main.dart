@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
@@ -11,68 +9,70 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'EOS ToDoList',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor:Colors.lightGreen),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        fontFamily: 'Pretendard',
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }
-
-
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.lightGreen,
-      title: Text('EOS ToDoList'),
-      leading: Icon(Icons.check_box_outlined),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            color: Colors.lightGreen[100],
-            height: 250,
-            padding: EdgeInsets.all(50),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+        appBar: AppBar(
+        backgroundColor: Color(0xFFA4C639).withOpacity(0.1),
+        title: Text('EOS ToDoList'),
+        leading: Image.asset('assets/images/eos_logo.png'),
+    ),
+
+        body: Column(
+          children: [
+            Container(
+                height: 200,
+                color: Colors.transparent,
+                padding: EdgeInsets.all(25),
+                child: Row(children: [
                   Container(
+                    width: 140,
+                    height: 140,
                     decoration: BoxDecoration(
-                      border: Border.all(width: 5, color: Colors.grey),
                       color: Colors.white,
+                      border: Border.all(width: 10, color: Colors.grey),
+                      borderRadius: BorderRadius.circular(100),
                     ),
-                    width: 150,
-                    height: 150,
-                    child: Icon(Icons.person, color: Colors.grey, size: 100)
+                    child: Center(
+                      child: Image.asset('assets/images/eos_logo.png'),
+                    ),
                   ),
-                  Container(
-                    width: 10,
-                    height: 150
+                  SizedBox(
+                    width: 35,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Eos',),
-                      Text(
-                        '김도연',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30
-                        ),
-                      ),
-                      Text('냥대 컴소 24학번'),
-                    ],
-                  ),
-                ],
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomAppBar(child: Text('hello eos')),
-    );
+                  Expanded(
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '김도연',
+                            style:
+                            TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text('최선을 다하기!')
+                        ]
+                    ),
+                  )
+                ])),
+            Container(
+                height: 500,
+                color: Color(0xFFA4C639).withOpacity(0.1)
+            )
+          ],
+        ));
   }
 }
