@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todolist_eos/widgets/add_button.dart';
+import 'package:todolist_eos/widgets/todo_item.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -86,8 +88,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Color(0xFFA4C639).withOpacity(0.1),
                         borderRadius: BorderRadius.circular(20)
                     ),
+                    child: ListView.builder(
+                      itemCount: todoLists.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ToDoItem(
+                          title: todoLists[index], // title 전달
+                          onDelete: () {
+                            setState(() {
+                              todoLists.removeAt(index);
+                            });
+                          }, // onDelete 전달
+                        );},
+                    ),
                   ),
-                ),
+                )
                 Positioned(
                   bottom: 30,
                   right: 50,
@@ -118,14 +132,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-
-                    child: ListView.builder(
-                      itemCount: toDoLists.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ToDoItem(
-                        // TODO: 알맞은 parameter값 전달하기
-                        );
-                    }),
                   ),
                 )
               ],

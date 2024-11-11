@@ -11,6 +11,8 @@ class ToDoItem extends StatefulWidget {
 }
 
 class _ToDoItemState extends State<ToDoItem> {
+  bool isClicked = false;
+
   @override
   Widget build(BuildContext context) {
     return ListTile(

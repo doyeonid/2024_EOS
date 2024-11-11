@@ -19,7 +19,6 @@ class AddButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),),
-      child: const Text('ElevatedButton'),
     ),
   }
 }
