@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todolist_eos/widgets/add_button.dart';
-import 'package:todolist_eos/widgets/todo_item.dart';
+import '../widgets/add_button.dart';
+import '../widgets/todo_item.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,13 +11,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  list todoLists = [];
+  List todoLists = [];
   @override
   void initState() {
     super.initState();
-    todoList.add("11111111");
-    todoList.add("22222222");
-    todoList.add("33333333");
+    todoLists.add("11111111");
+    todoLists.add("22222222");
+    todoLists.add("33333333");
   }
 
   @override
@@ -108,10 +108,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: AddButton(
                     onPressed: () {
                       setState(() {
-                        toDoLists.add("+++++++++");
+                        todoLists.add("+++++++++");
                       });
-                    },
-                  ))
+                      },
+                  ),
+                ),
+                Positioned(
                   top: 20,
                   left: (MediaQuery.of(context).size.width - 150)/2,
                   child: Container(
@@ -128,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 23,
-                            fontWeight: FontWeight.w600
+                            fontWeight: FontWeight.w600,
                         ),
                       ),
                     ),
