@@ -15,11 +15,13 @@ class AddButton extends StatelessWidget {
         color: Colors.white,
       ),
       style: ElevatedButton.styleFrom(
-        elevation: 10.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-      ),
+          elevation: 0,
+          backgroundColor: Color(0xFFA4C639).withOpacity(0.3),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          padding: EdgeInsets.all(0),
+          minimumSize: Size(50, 50)),
     );
   }
 }
