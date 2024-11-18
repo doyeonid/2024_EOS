@@ -1,3 +1,4 @@
+import 'package:eos_todolist/screens/setting_screen.dart';
 import 'package:eos_todolist/widgets/add_button.dart';
 import 'package:eos_todolist/widgets/todo_item.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    toDoLists.add("111111");
-    toDoLists.add("222222");
-    toDoLists.add("3333333");
+    toDoLists.add("11111111");
+    toDoLists.add("22222222");
+    toDoLists.add("33333333");
   }
 
   @override
@@ -34,6 +35,11 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Color(0xFFA4C639).withOpacity(0.1),
           title: Text('EOS ToDoList'),
           leading: Image.asset('assets/images/eos_logo.png'),
+          actions: [
+            IconButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SettingScreen()));
+            },
+                icon: Icon(Icons.settings_rounded))],
         ),
         body: Column(
           children: [
@@ -44,14 +50,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     width: 140,
                     height: 140,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(width: 10, color: Colors.grey),
+                    //decoration: BoxDecoration(
+                    //  color: Colors.white,
+                    //  border: Border.all(width: 10, color: Colors.grey),
+                    //  borderRadius: BorderRadius.circular(80),
+                    //),
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(80),
-                    ),
-                    child: Center(
-                      child: Image.asset('assets/images/eos_logo.png'),
-                    ),
+                        child: Image.asset('assets/images/kijae.png',
+                          fit: BoxFit.cover,)),
                   ),
                   SizedBox(
                     width: 35,
